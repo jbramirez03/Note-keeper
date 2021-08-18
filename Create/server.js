@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const { v4: uuidv4 } = require('uuid');
+
 
 const PORT = process.env.port || 3001;
 
@@ -24,7 +26,8 @@ app.post('/notes', (req, res) => {
   const newNote = {
     title,
     text,
-  }
+    note_id: uuidv4(),
+  };
 
 });
 
