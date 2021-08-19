@@ -23,8 +23,7 @@ app.get('/notes', (req, res) =>
 );
 
 app.get('/api/notes', (req, res) => {
-  res.json(notesData);
-  console.info(`${req.method} request received to get notes`);
+  readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
 });
 
 
