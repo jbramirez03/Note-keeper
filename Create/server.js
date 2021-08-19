@@ -3,6 +3,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const readAndAppend = require('./public/assets/helper/readAndAppend');
 const writeToFile = require('./public/assets/helper/readAndAppend');
+const notesData = require('./db/db.json');
 
 
 const PORT = process.env.port || 3001;
@@ -21,17 +22,28 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-app.post('/notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
+  console.info(`${req.method} request received to get notes`);
+  res.json(notesData);
+});
+
+
+app.post('/api/notes', (req, res) => {
   console.log(req.body);
-  const {title, text} = req.body;
+  const { title, text } = req.body;
 
-  const newNote = {
-    title,
-    text,
-    note_id: uuidv4(),
-  };
+  if (req.body) {
+    const newNote = {
+      title,
+      text,
+      note_id: uuidv4(),
+    };
 
-  readAndAppend(newNote, './db/db.json');
+    readAndAppend(newNote, './db/db.json');
+    res.json('note added');
+  } else {
+    res.error('error in saving note');
+  }
 });
 
 app.get('*', (req, res) =>
