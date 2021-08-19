@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-const readAndAppend = require('./public/assets/helper/readAndAppend');
+const {readAndAppend,readFile} = require('./public/assets/helper/readAndAppend');
 const writeToFile = require('./public/assets/helper/readAndAppend');
 const notesData = require('./db/db.json');
 
@@ -23,7 +23,7 @@ app.get('/notes', (req, res) =>
 );
 
 app.get('/api/notes', (req, res) => {
-  readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
+  readFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
 });
 
 
