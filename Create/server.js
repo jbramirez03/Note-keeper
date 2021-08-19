@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-const {readAndAppend,readFile} = require('./public/assets/helper/readAndAppend');
+const { readAndAppend, readFile } = require('./public/assets/helper/readAndAppend');
 const writeToFile = require('./public/assets/helper/readAndAppend');
 const notesData = require('./db/db.json');
 
@@ -43,6 +43,10 @@ app.post('/api/notes', (req, res) => {
   } else {
     res.error('error in saving note');
   }
+});
+
+app.delete('/api/notes/:id', (req, res) => {
+
 });
 
 app.get('*', (req, res) =>

@@ -4,28 +4,13 @@
         "text": "Test text"
     },
     {
-        "title": "note test",
-        "text": "this is a test",
-        "note_id": "85135d1b-b29e-4ba6-af65-1f505de5fb5e"
-    },
-    {
-        "title": "this is another test",
-        "text": "note",
-        "note_id": "12014869-0220-4035-bdec-25ef4b05d2df"
-    },
-    {
-        "title": "test",
-        "text": "test",
-        "note_id": "b1751fab-012e-42ac-9611-1449978d1906"
-    },
-    {
         "title": "test run",
-        "text": "hopefully this works",
-        "note_id": "85adc5b6-ae59-41e7-ac3e-d1811a3ce43f"
+        "text": "test",
+        "note_id": "af15f3f4-4aa9-471f-bbfe-f458e2a29968"
     },
     {
-        "title": "www",
-        "text": ".com",
-        "note_id": "cdd61830-8924-43bf-8c99-c974f9942ced"
+        "title": "another test",
+        "text": "new test",
+        "note_id": "e3c1754e-40bb-45f4-a69b-b6f8a561e985"
     }
 ]
