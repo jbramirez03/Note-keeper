@@ -23,8 +23,8 @@ app.get('/notes', (req, res) =>
 );
 
 app.get('/api/notes', (req, res) => {
-  console.info(`${req.method} request received to get notes`);
   res.json(notesData);
+  console.info(`${req.method} request received to get notes`);
 });
 
 
