@@ -21,4 +21,15 @@ const readAndAppend = (content, file) => {
   });
 };
 
-module.exports = { readAndAppend, writeToFile, readFile };
+const deleteFromDbJson = (FileLocation, passedId) => {
+  fs.readFile(fileLocation, function(err, data) {
+      var ogArray = JSON.parse(data);
+      const filteredArray = ogArray.filter(({ id }) => id !== passedId)
+      fs.writeFile(fileLocation, JSON.stringify(filteredArray), function(err) {
+          if (err) throw err;
+          console.log(`Notes were updated in ${fileLocation}` );
+      });
+  })
+}
+
+module.exports = { readAndAppend, writeToFile, readFile, deleteFromDbJson };
