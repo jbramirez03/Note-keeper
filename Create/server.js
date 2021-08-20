@@ -1,10 +1,11 @@
 const express = require('express');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-const { readAndAppend, readFile } = require('./public/assets/helper/readAndAppend');
+const { readAndAppend, readFile, deleteNote} = require('./public/assets/helper/readAndAppend');
 const writeToFile = require('./public/assets/helper/readAndAppend');
 const notesData = require('./db/db.json');
-
+const fs = require('fs');
+const database = './db/db.json';
 
 const PORT = process.env.port || 3001;
 
@@ -35,7 +36,7 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuidv4(),
+      id: uuidv4(),
     };
 
     readAndAppend(newNote, './db/db.json');
@@ -45,8 +46,11 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
-app.delete('/api/notes/:id', (req, res) => {
 
+app.delete("/api/notes/:id", (req, res) => {
+  const id = req.params.id;
+  deleteNote(database, id);
+  res.json({ id: id });
 });
 
 app.get('*', (req, res) =>

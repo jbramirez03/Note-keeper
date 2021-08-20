@@ -21,15 +21,23 @@ const readAndAppend = (content, file) => {
   });
 };
 
-const deleteFromDbJson = (FileLocation, passedId) => {
-  fs.readFile(fileLocation, function(err, data) {
-      var ogArray = JSON.parse(data);
-      const filteredArray = ogArray.filter(({ id }) => id !== passedId)
-      fs.writeFile(fileLocation, JSON.stringify(filteredArray), function(err) {
-          if (err) throw err;
-          console.log(`Notes were updated in ${fileLocation}` );
+const deleteNote = (file, passedId) => {
+  fs.readFile(file, 'utf8', (err,data) => {
+    if(err){
+      console.error(err);
+    } else {
+      const ogNotes = JSON.parse(data);
+      let newNotes = ogNotes.filter(({ id }) => id !== passedId);
+      fs.writeFile(file, JSON.stringify(newNotes), (err) => {
+        if(err){
+          console.error(err);
+        } else {
+          console.log('successfully deleted note');
+        }
       });
-  })
+    }
+  });
 }
 
-module.exports = { readAndAppend, writeToFile, readFile, deleteFromDbJson };
+
+module.exports = { readAndAppend, writeToFile, readFile, deleteNote};
