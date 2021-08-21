@@ -26,7 +26,7 @@ This website uses a server and the application itself is hosted on heroku. The s
 Once you hit the save button the note automatically appears on the left-hand side column.
 <img width="600" height="400" alt="Screen Shot 2021-08-20 at 11 07 11 PM" src="https://user-images.githubusercontent.com/82244776/130308723-8efeea23-9a3c-4675-96a0-8f7b58d6790f.png">
 
-If you click on the note it will reappear on the right-hand side column and if you click the delete icon the note will be deleted.
+If you click on the note it will reappear on the right-hand side column and if you click the delete icon the note will be deleted.<br>
 <img width="600" height="400" alt="Screen Shot 2021-08-20 at 11 15 08 PM" src="https://user-images.githubusercontent.com/82244776/130308758-4ddb4da5-b793-43e3-8333-1ebdd3bb200f.png">
 ## Credits
 Jason Barrera-Ramirez<br><br>
